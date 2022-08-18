@@ -15,10 +15,12 @@ build:
   stage: build
   script:
     - ls
-    - pwd
+    - mkdir tmp/
+    - TARGETDIR='tmp';for file in *;do test "$file" != "$TARGETDIR" && cp "$file" "$TARGETDIR/";done
+
   artifacts:
     paths:
-      - build/libs/*.jar
+      - tmp/*.*
     expire_in: 1 week
 
 after_script:
