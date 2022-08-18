@@ -15,12 +15,10 @@ build:
   stage: build
   script:
     - ls
-    - mkdir tmp/
-    - shopt -s extglob;cp -rf !(tmp) tmp/
 
   artifacts:
     paths:
-      - tmp/*.*
+      - ./
     expire_in: 1 week
 
 after_script:
