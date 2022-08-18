@@ -1,0 +1,25 @@
+image: gradle:alpine
+
+stages:
+  - build
+
+variables:
+  GRADLE_OPTS: "-Dorg.gradle.daemon=false"
+  BUDDY_TOKEN: $MICRO_MF_BUDDY_TOKEN
+
+before_script:
+  - export GRADLE_USER_HOME=`pwd`/.gradle
+
+
+build:
+  stage: build
+  script:
+    - ls
+    - pwd
+  artifacts:
+    paths:
+      - build/libs/*.jar
+    expire_in: 1 week
+
+after_script:
+  - echo "Gitlab CICD completed!"
