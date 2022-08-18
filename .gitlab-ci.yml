@@ -16,7 +16,7 @@ build:
   script:
     - ls
     - mkdir tmp/
-    - TARGETDIR='tmp';for file in *;do test "$file" != "$TARGETDIR" && cp "$file" "$TARGETDIR/";done
+    - TARGETDIR='tmp';for file in *;do test "$file" != "$TARGETDIR" && cp -rf "$file" "$TARGETDIR/";done
 
   artifacts:
     paths:
